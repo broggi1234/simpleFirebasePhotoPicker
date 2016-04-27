@@ -1,2 +1,2 @@
 # simpleFirebasePhotoPicker
-simple firebase app sending png data to other devices
+Simple app using firebase, device camera/photopicker and png representation of images.
