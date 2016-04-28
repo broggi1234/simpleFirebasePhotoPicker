@@ -24,6 +24,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.observePhotos()
     }
     
+    //MARK: - Take picture tapped
     @IBAction func takePictureTapped(sender: UIBarButtonItem) {
         
         self.displayPickerController()
@@ -41,20 +42,24 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         return 200
     }
     
+    //setting up the cell
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let p = arrayOfPhotos[indexPath.row]
         
         let cell = tableView.dequeueReusableCellWithIdentifier("Photo Cell", forIndexPath: indexPath) as! CustomTableViewCell
         if let imageData = p.imagePngData {
+            
             if let theImage = UIImage(data: imageData) {
                 
-                dispatch_async(dispatch_get_main_queue(), {
-                    
-                    cell.photoCellImageView.image = theImage
-                    
-                })
+                cell.photoCellImageView.image = theImage
+                
+            } else {
+                
+                print("can't create image from data")
             }
+        } else {
+            print("bad image data")
         }
         return cell
     }
@@ -133,6 +138,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                         photo.ref = Firebase(url: "https://cameraphotopicker.firebaseio.com/\(key)")
                         
                         self.arrayOfPhotos.insert(photo, atIndex: 0)
+                        
+                        print(self.arrayOfPhotos.count)
                         
                         self.tableView.reloadData()
                     }

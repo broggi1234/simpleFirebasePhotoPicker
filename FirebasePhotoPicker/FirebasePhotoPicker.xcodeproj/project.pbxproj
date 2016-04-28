@@ -67,14 +67,30 @@
 			children = (
 				14F530991CD1664F00BDD951 /* AppDelegate.swift */,
 				14F5309B1CD1664F00BDD951 /* ViewController.swift */,
-				14F530AB1CD16BBD00BDD951 /* Photo.swift */,
-				14F530AD1CD176AB00BDD951 /* CustomTableViewCell.swift */,
+				14F530AF1CD181F500BDD951 /* Models */,
+				14F530B01CD1820700BDD951 /* Views */,
 				14F5309D1CD1664F00BDD951 /* Main.storyboard */,
 				14F530A01CD1664F00BDD951 /* Assets.xcassets */,
 				14F530A21CD1664F00BDD951 /* LaunchScreen.storyboard */,
 				14F530A51CD1664F00BDD951 /* Info.plist */,
 			);
 			path = FirebasePhotoPicker;
+			sourceTree = "<group>";
+		};
+		14F530AF1CD181F500BDD951 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				14F530AB1CD16BBD00BDD951 /* Photo.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		14F530B01CD1820700BDD951 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				14F530AD1CD176AB00BDD951 /* CustomTableViewCell.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		6EDE75134C568F9276459918 /* Pods */ = {

@@ -29,7 +29,7 @@ class Photo {
         
         if let dataStr = dict["imagePngData"] as? String {
             
-            let data = dataStr.dataUsingEncoding(NSUTF8StringEncoding)
+            let data = NSData(base64EncodedString: dataStr, options: NSDataBase64DecodingOptions(rawValue: 0))
             
             if let data = data {
                 
@@ -46,19 +46,26 @@ class Photo {
     
     func save() {
         
-        let imagePngDataString = "\(self.imagePngData)"
-        
-        let dict = [
+      //  if let imageData = self.imagePngData {
             
-            "imagePngData": imagePngDataString
+          //  let imagePngDataString = String(data: imageData, encoding: NSUTF8StringEncoding)
             
-        ]
+            let resstr = imagePngData!.base64EncodedStringWithOptions(NSDataBase64EncodingOptions.Encoding64CharacterLineLength)
+            
+           print(resstr)
+                
+                let dict = [
+                    
+                    "imagePngData": resstr
+                    
+                ]
+                
+                
+                let firebaseQuestion = self.photoRef.childByAutoId()
+                
+                firebaseQuestion.setValue(dict)
+                
+                print("saved")
         
-        let firebaseQuestion = self.photoRef.childByAutoId()
-        
-        firebaseQuestion.setValue(dict)
-        
-        print("saved")
     }
-
 }
