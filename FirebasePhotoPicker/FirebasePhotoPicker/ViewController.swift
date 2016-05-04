@@ -45,23 +45,49 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     //setting up the cell
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let p = arrayOfPhotos[indexPath.row]
-        
-        let cell = tableView.dequeueReusableCellWithIdentifier("Photo Cell", forIndexPath: indexPath) as! CustomTableViewCell
-        if let imageData = p.imagePngData {
+        if !self.arrayOfPhotos.isEmpty {
             
-            if let theImage = UIImage(data: imageData) {
+            let p = arrayOfPhotos[indexPath.row]
+            
+            let cell = tableView.dequeueReusableCellWithIdentifier("Photo Cell", forIndexPath: indexPath) as! CustomTableViewCell
+            if let imageData = p.imagePngData {
                 
-                cell.photoCellImageView.image = theImage
-                
+                if let theImage = UIImage(data: imageData) {
+                    
+                    cell.photoCellImageView.image = theImage
+                    
+                } else {
+                    
+                    print("can't create image from data")
+                }
             } else {
-                
-                print("can't create image from data")
+                print("bad image data")
             }
-        } else {
-            print("bad image data")
+            
+            return cell
         }
-        return cell
+        
+        return UITableViewCell()
+    }
+    
+    //MARK: - Table View Delegate
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        
+        if editingStyle == UITableViewCellEditingStyle.Delete {
+            
+            if !self.arrayOfPhotos.isEmpty {
+                
+                let photo = arrayOfPhotos[indexPath.row]
+                
+                //Delete image form firebase
+                photo.ref?.removeValue()
+                
+                self.tableView.reloadData()
+                
+                self.arrayOfPhotos.removeAtIndex(indexPath.row)
+                
+            }
+        }
     }
     
     //MARK: - Take Picture Tapped
@@ -134,7 +160,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                         
                         let photo = Photo(key: key, dict: dict)
                         
-                        //Sets event.ref to event url for accessing later
+                        //Sets photo.ref to event url for accessing later
                         photo.ref = Firebase(url: "https://cameraphotopicker.firebaseio.com/\(key)")
                         
                         self.arrayOfPhotos.insert(photo, atIndex: 0)
