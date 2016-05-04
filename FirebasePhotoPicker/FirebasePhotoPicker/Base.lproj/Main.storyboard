@@ -75,7 +75,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="TtE-WJ-ac6">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="camera" id="kFJ-Ir-WYj">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="camera" id="kFJ-Ir-WYj">
                             <connections>
                                 <action selector="takePictureTapped:" destination="BYZ-38-t0r" id="Ryg-fv-ypE"/>
                             </connections>
