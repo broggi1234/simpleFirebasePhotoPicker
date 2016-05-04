@@ -29,9 +29,9 @@ class Photo {
         
         if let dataStr = dict["imagePngData"] as? String {
             
-            let data = NSData(base64EncodedString: dataStr, options: NSDataBase64DecodingOptions(rawValue: 0))
+            let decodedData = NSData(base64EncodedString: dataStr, options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)
             
-            if let data = data {
+            if let data = decodedData {
                 
                 self.imagePngData = data
                 
@@ -49,14 +49,13 @@ class Photo {
       //  if let imageData = self.imagePngData {
             
           //  let imagePngDataString = String(data: imageData, encoding: NSUTF8StringEncoding)
-            
-            let resstr = imagePngData!.base64EncodedStringWithOptions(NSDataBase64EncodingOptions.Encoding64CharacterLineLength)
-            
-           print(resstr)
-                
+        
+        
+        let base64String = imagePngData!.base64EncodedStringWithOptions(.Encoding64CharacterLineLength)
+        
                 let dict = [
                     
-                    "imagePngData": resstr
+                    "imagePngData": base64String
                     
                 ]
                 
