@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
@@ -22,23 +23,37 @@
                                 <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Photo Cell" rowHeight="200" id="cOk-ba-nL7" customClass="CustomTableViewCell" customModule="FirebasePhotoPicker" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="600" height="200"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Photo Cell" rowHeight="500" id="cOk-ba-nL7" customClass="CustomTableViewCell" customModule="FirebasePhotoPicker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="500"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cOk-ba-nL7" id="MGu-p9-lAs">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="199.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="499.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iHk-OS-99X">
-                                                    <rect key="frame" x="8" y="4" width="361" height="191.5"/>
+                                                    <rect key="frame" x="5.5" y="-45" width="589" height="589.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="iHk-OS-99X" secondAttribute="height" multiplier="1:1" id="FpU-P7-q5C"/>
+                                                    </constraints>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="iHk-OS-99X" firstAttribute="width" secondItem="MGu-p9-lAs" secondAttribute="width" multiplier="0.6" constant="1" id="2q5-Mo-XNC"/>
+                                                <constraint firstItem="iHk-OS-99X" firstAttribute="width" secondItem="MGu-p9-lAs" secondAttribute="width" multiplier="0.98" constant="1" id="2q5-Mo-XNC"/>
+                                                <constraint firstItem="iHk-OS-99X" firstAttribute="top" secondItem="MGu-p9-lAs" secondAttribute="top" constant="4" id="FR1-wB-s75"/>
                                                 <constraint firstItem="iHk-OS-99X" firstAttribute="leading" secondItem="MGu-p9-lAs" secondAttribute="leading" constant="8" id="JSx-c2-4M1"/>
+                                                <constraint firstItem="iHk-OS-99X" firstAttribute="centerY" secondItem="MGu-p9-lAs" secondAttribute="centerY" id="YJD-v4-ueu"/>
                                                 <constraint firstAttribute="bottom" secondItem="iHk-OS-99X" secondAttribute="bottom" constant="4" id="gGv-8y-XZu"/>
+                                                <constraint firstItem="iHk-OS-99X" firstAttribute="centerX" secondItem="MGu-p9-lAs" secondAttribute="centerX" id="qWU-BI-mWg"/>
                                                 <constraint firstItem="iHk-OS-99X" firstAttribute="top" secondItem="MGu-p9-lAs" secondAttribute="top" constant="4" id="tgN-6m-gB0"/>
                                             </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="FR1-wB-s75"/>
+                                                    <exclude reference="JSx-c2-4M1"/>
+                                                    <exclude reference="gGv-8y-XZu"/>
+                                                    <exclude reference="tgN-6m-gB0"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="photoCellImageView" destination="iHk-OS-99X" id="aW7-1M-sPG"/>

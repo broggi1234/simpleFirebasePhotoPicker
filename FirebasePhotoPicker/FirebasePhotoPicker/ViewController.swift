@@ -39,7 +39,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         
-        return 200
+        return self.view.frame.size.width
     }
     
     //setting up the cell
