@@ -79,12 +79,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 
                 let photo = arrayOfPhotos[indexPath.row]
                 
-                //Delete image form firebase
-                photo.ref?.removeValue()
+                let photoRef = photo.ref
+                
+                self.arrayOfPhotos.removeAtIndex(indexPath.row)
                 
                 self.tableView.reloadData()
                 
-                self.arrayOfPhotos.removeAtIndex(indexPath.row)
+                //Delete image form firebase
+                photoRef?.removeValue()
                 
             }
         }
