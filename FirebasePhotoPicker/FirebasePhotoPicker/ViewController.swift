@@ -13,15 +13,17 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     //MARK: - Outlets
     @IBOutlet weak var tableView: UITableView!
-    
+       
     //MARK: - Properties
     let pickerController = UIImagePickerController()
+    
     var arrayOfPhotos = [Photo]()
     var ref = Firebase(url: "https://cameraphotopicker.firebaseio.com/")
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.observePhotos()
+        
     }
     
     //MARK: - Take picture tapped
@@ -143,6 +145,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
     }
     
+    
+    
     // MARK: - Event Observer
     func observePhotos() {
         
@@ -165,7 +169,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                         //Sets photo.ref to event url for accessing later
                         photo.ref = Firebase(url: "https://cameraphotopicker.firebaseio.com/\(key)")
                         
-                        self.arrayOfPhotos.insert(photo, atIndex: 0)
+                        self.arrayOfPhotos.append(photo)
                         
                         print(self.arrayOfPhotos.count)
                         
@@ -175,6 +179,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             }
         })
     }
+    
+    
+    
     
 }
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="gNb-uf-EdG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="gNb-uf-EdG">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -30,21 +30,47 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="499.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iHk-OS-99X">
-                                                    <rect key="frame" x="5.5" y="-45" width="589" height="589.5"/>
+                                                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iHk-OS-99X">
+                                                    <rect key="frame" x="6" y="-45" width="589" height="589.5"/>
+                                                    <gestureRecognizers/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="iHk-OS-99X" secondAttribute="height" multiplier="1:1" id="FpU-P7-q5C"/>
                                                     </constraints>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Yeah Right" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zx2-YO-1bH">
+                                                    <rect key="frame" x="22" y="190" width="556" height="120.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="100"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <size key="shadowOffset" width="1" height="-1"/>
+                                                </label>
+                                                <textField opaque="NO" clipsSubviews="YES" alpha="0.75" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cjd-jJ-3bm">
+                                                    <rect key="frame" x="5.5" y="235" width="590" height="30"/>
+                                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="BYZ-38-t0r" id="Y8u-hd-TvL"/>
+                                                    </connections>
+                                                </textField>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="iHk-OS-99X" firstAttribute="width" secondItem="MGu-p9-lAs" secondAttribute="width" multiplier="0.98" constant="1" id="2q5-Mo-XNC"/>
                                                 <constraint firstItem="iHk-OS-99X" firstAttribute="top" secondItem="MGu-p9-lAs" secondAttribute="top" constant="4" id="FR1-wB-s75"/>
+                                                <constraint firstItem="Cjd-jJ-3bm" firstAttribute="width" secondItem="iHk-OS-99X" secondAttribute="width" constant="1" id="HaV-Gg-pOf"/>
                                                 <constraint firstItem="iHk-OS-99X" firstAttribute="leading" secondItem="MGu-p9-lAs" secondAttribute="leading" constant="8" id="JSx-c2-4M1"/>
+                                                <constraint firstItem="zx2-YO-1bH" firstAttribute="centerY" secondItem="MGu-p9-lAs" secondAttribute="centerY" id="L00-tV-WEo"/>
+                                                <constraint firstAttribute="bottom" secondItem="Cjd-jJ-3bm" secondAttribute="bottom" constant="22" id="OfY-Um-wgK"/>
                                                 <constraint firstItem="iHk-OS-99X" firstAttribute="centerY" secondItem="MGu-p9-lAs" secondAttribute="centerY" id="YJD-v4-ueu"/>
                                                 <constraint firstAttribute="bottom" secondItem="iHk-OS-99X" secondAttribute="bottom" constant="4" id="gGv-8y-XZu"/>
+                                                <constraint firstItem="Cjd-jJ-3bm" firstAttribute="centerY" secondItem="MGu-p9-lAs" secondAttribute="centerY" id="gfS-zL-eo4"/>
+                                                <constraint firstItem="Cjd-jJ-3bm" firstAttribute="centerX" secondItem="MGu-p9-lAs" secondAttribute="centerX" id="kQE-0R-Svy"/>
+                                                <constraint firstAttribute="trailing" secondItem="zx2-YO-1bH" secondAttribute="trailing" constant="22" id="ndW-gZ-5PJ"/>
                                                 <constraint firstItem="iHk-OS-99X" firstAttribute="centerX" secondItem="MGu-p9-lAs" secondAttribute="centerX" id="qWU-BI-mWg"/>
                                                 <constraint firstItem="iHk-OS-99X" firstAttribute="top" secondItem="MGu-p9-lAs" secondAttribute="top" constant="4" id="tgN-6m-gB0"/>
+                                                <constraint firstItem="zx2-YO-1bH" firstAttribute="leading" secondItem="MGu-p9-lAs" secondAttribute="leading" constant="22" id="tlL-9m-xyH"/>
                                             </constraints>
                                             <variation key="default">
                                                 <mask key="constraints">
@@ -52,11 +78,16 @@
                                                     <exclude reference="JSx-c2-4M1"/>
                                                     <exclude reference="gGv-8y-XZu"/>
                                                     <exclude reference="tgN-6m-gB0"/>
+                                                    <exclude reference="OfY-Um-wgK"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
+                                        <gestureRecognizers/>
                                         <connections>
+                                            <outlet property="doubleTapLabel" destination="zx2-YO-1bH" id="5D1-b5-pjr"/>
                                             <outlet property="photoCellImageView" destination="iHk-OS-99X" id="aW7-1M-sPG"/>
+                                            <outlet property="textField" destination="Cjd-jJ-3bm" id="60M-KR-aT6"/>
+                                            <outletCollection property="gestureRecognizers" destination="hqC-ln-9xk" appends="YES" id="315-KE-12x"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -67,12 +98,16 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="0qD-jo-Rl7" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="DEH-hO-DDd"/>
                             <constraint firstItem="0qD-jo-Rl7" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Ggp-Mk-5st"/>
                             <constraint firstAttribute="trailing" secondItem="0qD-jo-Rl7" secondAttribute="trailing" id="Yro-hv-A5D"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="0qD-jo-Rl7" secondAttribute="bottom" id="dPR-Xb-e6z"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="hqC-ln-9xk" appends="YES" id="Wdh-co-IYu"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="TtE-WJ-ac6">
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="camera" id="kFJ-Ir-WYj">
@@ -86,6 +121,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer numberOfTapsRequired="2" id="hqC-ln-9xk"/>
             </objects>
             <point key="canvasLocation" x="1057" y="317"/>
         </scene>

@@ -45,26 +45,20 @@ class Photo {
     }
     
     func save() {
+    
+        if let imageData = imagePngData {
         
-      //  if let imageData = self.imagePngData {
-            
-          //  let imagePngDataString = String(data: imageData, encoding: NSUTF8StringEncoding)
-        
-        
-        let base64String = imagePngData!.base64EncodedStringWithOptions(.Encoding64CharacterLineLength)
+        let base64String = imageData.base64EncodedStringWithOptions(.Encoding64CharacterLineLength)
         
                 let dict = [
                     
                     "imagePngData": base64String
                     
                 ]
-                
-                
+            
                 let firebaseQuestion = self.photoRef.childByAutoId()
                 
                 firebaseQuestion.setValue(dict)
-                
-                print("saved")
-        
+        }
     }
 }
